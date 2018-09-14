@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 import { Logo } from '../images'
-import { Mushroom } from '../sprites'
+import { Mushroom, Test } from '../sprites'
 
 export default class extends Phaser.Scene {
   constructor () {
@@ -20,6 +20,8 @@ export default class extends Phaser.Scene {
 
     this.mushroom = new Mushroom(this, 0, 0)
     Phaser.Display.Align.In.Center(this.mushroom, this.add.zone(400, 300, 800, 600))
+
+    this.test = new Test(this, 0, 0)
   }
 
   update () {

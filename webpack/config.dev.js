@@ -1,5 +1,6 @@
 const merge = require('webpack-merge')
 const webpackConfig = require('./config')
+const BrowserSyncWebpackPlugin = require('browser-sync-webpack-plugin')
 
 module.exports = merge(webpackConfig, {
   devtool: 'eval',
@@ -10,7 +11,13 @@ module.exports = merge(webpackConfig, {
     filename: '[name].js'
   },
 
-  devServer: {
-    port: 3000
-  }
+  plugins: [
+    new BrowserSyncWebpackPlugin({
+      host: process.env.IP || 'localhost',
+      port: process.env.PORT || 3000,
+      server: {
+        baseDir: ['dist']
+      }
+    })
+  ]
 })
